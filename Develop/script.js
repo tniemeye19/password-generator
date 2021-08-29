@@ -30,6 +30,59 @@ function symbolRandom() {
   return symbolChar;
 }
 
+// How long would you like your password to be? Must be between 8 and 128 characters.
+function promptLength() {
+  var lengthFromInput = window.prompt("How long would you like your password to be? All passwords must be between 8 and 128 characters. Please enter that number below.");
+  console.log(lengthFromInput);
+  if (lengthFromInput >= 8 && lengthFromInput <= 128) {
+
+    // NEED TO INPUT SOMETHING HERE TO TAKE INTO CONSIDERATION LENGTH, AND 
+
+  } else {
+    window.alert("You did not enter a numeric value within the guidelines. Please try again in the following prompt.")
+    promptLength();
+  }
+}
+
+function createPassword(/*upper, lower, number, symbol, length*/) {
+
+  promptLength();
+
+  // Would you like to include uppercase characters?
+  var promptUpper = window.confirm("Would you like to include uppercase characters?");
+  if (promptUpper === true) {
+    console.log("Uppercase characters are included!");
+    upperRandom;
+  } else {
+    console.log("Uppercase characters are NOT included.");
+  }
+  // Would you like to include lowercase characters?
+  var promptLower = window.confirm("Would you like to include lowercase characters?");
+  if (promptLower === true) {
+    console.log("Lowercase characters are included!");
+    lowerRandom;
+  } else {
+    console.log("Lowercase characters are NOT included.")
+  }
+  // Would you like to include numeric characters?
+  var promptNumber = window.confirm("Would you like to include numeric characters?");
+  if (promptNumber === true) {
+    console.log("Numeric characters are included!");
+    numberRandom;
+  } else {
+    console.log("Numeric characters are NOT included.");
+  }
+  //  Would you like to include special characters?
+  var promptSymbol = window.confirm("Would you like to include special characters?");
+  if (promptSymbol === true) {
+    console.log("Symbolic characters are included!");
+    symbolRandom;
+  } else {
+    console.log("Symbolic characters are NOT included.");
+  }
+}
+
+createPassword();
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
