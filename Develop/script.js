@@ -1,45 +1,10 @@
 // Assignment code here
 
-// // Variables for characters used in password
-// var randomCharacterFunction = {
-//   upper: upperRandom,
-//   lower: lowerRandom,
-//   number: numberRandom,
-//   symbol: symbolRandom
-// }
-
-// // Random Upper Character Function
-// function upperRandom() {
-//   var upperChar = String.fromCharCode(Math.floor(Math.random() * 26) + 97);
-//   console.log(upperChar);
-//   return upperChar;
-// }
-
-// // Random Lower Character Function
-// function lowerRandom() {
-//   var lowerChar = String.fromCharCode(Math.floor(Math.random() * 26) + 65);
-//   console.log(lowerChar);
-//   return lowerChar;
-// }
-
-// // Random Numeric Character Function
-// function numberRandom() {
-//   var numericChar = String.fromCharCode(Math.floor(Math.random() * 10) + 48);
-//   console.log(numericChar);
-//   return numericChar;
-// }
-
-// // Random Symbol Character Function
-// function symbolRandom() {
-//   var symbolChar = symbolCharList[Math.floor(Math.random() * symbolCharList.length)];
-//   console.log(symbolChar);
-//   return symbolChar;
-// }
-
 // How long would you like your password to be? Must be between 8 and 128 characters.
-function generatePassword(upper, lower, number, symbol, lengthFromInput) {
+function generatePassword() {
   var lengthFromInput = window.prompt("How long would you like your password to be? All passwords must be between 8 and 128 characters. Please enter that number below.");
-  
+  let password = '';
+
   if (lengthFromInput >= 8 && lengthFromInput <= 128) {
     charList = '';
     window.alert("Your password will be " + lengthFromInput + " characters long.");
@@ -91,15 +56,16 @@ function generatePassword(upper, lower, number, symbol, lengthFromInput) {
     }  
 
     for (var i = 0; i < lengthFromInput; i++) {
-      var password = charList[Math.floor(Math.random() * charList.length)];
+      password += charList[Math.floor(Math.random() * charList.length)];
     }
 
-    password = generatePassword();
+    return password;
 
   } else {
     window.alert("You did not enter a numeric value within the guidelines. Please try again in the following prompt.")
     console.log("You did NOT follow the directions for password length.");
-    generatePassword();
+    
+    return;
   }
 
 }
